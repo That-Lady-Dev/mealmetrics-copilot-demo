@@ -21,6 +21,8 @@ const config = new Configuration({
 const openai = new OpenAIApi(config);
 
 const generateInfo = async (req, res) => {
+    const { recipe } = req.body;
+
     try {
         const completion = await openai.createCompletion({
             model: "text-davinci-003",
@@ -30,7 +32,7 @@ const generateInfo = async (req, res) => {
             n: 1,
         });
 
-        // ger response from openai
+        // get response from openai
         const response = completion.data.choices[0].text;
 
         return res.status(200).json({
@@ -42,4 +44,4 @@ const generateInfo = async (req, res) => {
     }
 }
 
-module.exports = generateInfo;
+module.exports = { generateInfo };

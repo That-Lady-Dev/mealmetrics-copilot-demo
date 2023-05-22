@@ -17,10 +17,15 @@ const port = process.env.PORT || 8080;
 
 app.use(express.json());
 
+// add router to server and name it openai
+app.use('/openai', require('./router'));
+
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 }
 );
+
+module.exports = app;
 
 
 
