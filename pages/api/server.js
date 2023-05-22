@@ -9,7 +9,7 @@ Create a server with the following specifications:
 */
 
 const express = require('express');
-const dotenv = require('dotenv');
+const dotenv = require('dotenv').config();
 
 const app = express();
 
